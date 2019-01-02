@@ -59,7 +59,7 @@ int main()
 		tester.changeCent(*grad, *(grad + 1));
 		cout << *grad << " " << *(grad + 1) << endl;
 		cent = tester.getCent();
-		cout << "( " << *cent << ", " << *(cent + 1) << " )" << endl;
+		cout << "( " << *cent << ", " << *(cent + 1) << " ) " << endl;
 	}
 	cin.ignore();
 	return 0;
