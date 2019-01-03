@@ -57,9 +57,9 @@ int main()
 		tester.setPoints(a, b);
 		grad = tester.getGrad();
 		tester.changeCent(*grad, *(grad + 1));
-		cout << *grad << " " << *(grad + 1) << endl;
+		cout << *grad << " " << *(grad + 1) << endl; //prints gradient
 		cent = tester.getCent();
-		cout << "( " << *cent << ", " << *(cent + 1) << " ) " << endl;
+		cout << "( " << *cent << ", " << *(cent + 1) << " ) " << endl; //prints new centroid point
 	}
 	cin.ignore();
 	return 0;
