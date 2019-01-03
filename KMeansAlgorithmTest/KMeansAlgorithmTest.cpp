@@ -5,43 +5,43 @@
 #include <iostream>
 #include "math.h"
 using namespace std;
-class Centroid{
+class Centroid {
 private:
 	double centP[2]; //Cx = centP[0], Cy = centP[1]
 	double points[2][2];// Xn = points[n][0], Yn = points[n][1]
 public:
-	Centroid(){
+	Centroid() {
 		centP[0] = 0;
 		centP[1] = 0;
 	}
-	void setPoints(double p1[2], double p2[2]){
-		for(int i = 0; i<2; i++){
+	void setPoints(double p1[2], double p2[2]) {
+		for (int i = 0; i < 2; i++) {
 			points[0][i] = p1[i];
 			points[1][i] = p2[i];
 		}
 	}
-	double getDistance(double p[2]){
-		return sqrt(((centP[0] - p[0])*(centP[0] - p[0]))+((centP[1] - p[1])*(centP[1] - p[1])));
+	double getDistance(double p[2]) {
+		return sqrt(((centP[0] - p[0])*(centP[0] - p[0])) + ((centP[1] - p[1])*(centP[1] - p[1])));
 	}
-	double* getGrad(){
+	double* getGrad() {
 		double LxSum = 0;
 		double LySum = 0;
-		for(int i = 0; i<2; i++){
-			LxSum+=(centP[0] - points[i][0])/getDistance(points[i]);
-			LySum+=(centP[1] - points[i][1])/getDistance(points[i]);
+		for (int i = 0; i < 2; i++) {
+			LxSum += (centP[0] - points[i][0]) / getDistance(points[i]);
+			LySum += (centP[1] - points[i][1]) / getDistance(points[i]);
 		}
-		LxSum/=2.0;
-		LySum/=2.0;
-		double L[2] = {LxSum, LySum};
+		LxSum /= 2.0;
+		LySum /= 2.0;
+		double L[2] = { LxSum, LySum };
 		return L;
 	}
-	void changeCent(double delX, double delY){
+	void changeCent(double delX, double delY) {
 		//double n = (sqrt((points[0][0]-points[1][0])*(points[0][0]-points[1][0]))+sqrt((points[0][1]-points[1][1])*(points[0][1]-points[1][1])))/2;
 		double n = 1.0;
-		centP[0]-=n*delX;
-		centP[1]-=n*delY;
+		centP[0] -= n * delX;
+		centP[1] -= n * delY;
 	}
-	double* getCent(){
+	double* getCent() {
 		return centP;
 	}
 
